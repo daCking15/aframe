@@ -15,7 +15,7 @@ module.exports.Shader = registerShader('msdf', {
 
   raw: true,
 
-  vertexShader: [
+  vertexShader: '#version 300 es\n' + [
     '#ifdef AFRAME_enable_multiview',
     '  #extension GL_OVR_multiview : require',
     '  layout(num_views = 2) in;',
@@ -38,6 +38,7 @@ module.exports.Shader = registerShader('msdf', {
   ].join('\n'),
 
   fragmentShader: [
+    '#version 300 es',
     '#ifdef GL_OES_standard_derivatives',
     '#extension GL_OES_standard_derivatives: enable',
     '#endif',
